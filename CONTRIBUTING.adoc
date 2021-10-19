@@ -1,0 +1,14 @@
+= Contributing 
+
+== Dependencies 
+
+* Poetry
+* Python 3.9 
+
+
+Install dependencies and make ipykernel available:
+[source, shell]
+----
+$ poetry install
+$ poetry run python -m ipykernel install --user --name poetryenv --display-name "Python (poetry env)
+----

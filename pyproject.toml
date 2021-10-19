@@ -8,6 +8,7 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = ">=3.9,<3.11"
 pylint = "^2.11.1"
+python-chess = "^1.999"
 
 [tool.poetry.dev-dependencies]
 yapf = "^0.31.0"

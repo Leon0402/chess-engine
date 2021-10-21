@@ -21,3 +21,23 @@ Also install precommit hooks:
 ----
 $ pre-commit install
 ----
+
+Also setup the proper filters:
+[source, shell]
+----
+git config filter.nbstripout.clean "f() { echo >&2 \"clean: poetry run python -m nbstripout $1\"; poetry run python -m nbstripout; }; f %f"
+git config filter.nbstripout.smudge "f() { echo >&2 \"smudge: cat $1\"; cat; }; f %f"
+git config --global filter.nbstripout.extrakeys '
+  metadata.celltoolbar
+  metadata.kernelspec
+  metadata.language_info.codemirror_mode.version
+  metadata.language_info.pygments_lexer
+  metadata.language_info.version
+  metadata.notify_time
+  metadata.varInspector
+  cell.metadata.heading_collapsed
+  cell.metadata.hidden
+  cell.metadata.code_folding
+  cell.metadata.tags
+  '
+----

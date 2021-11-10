@@ -1,2 +1,5 @@
 # Poetry
 .venv
+
+# Jupyter
+_build

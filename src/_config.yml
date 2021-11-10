@@ -1,0 +1,19 @@
+title: "Chess Engine 2"
+author: Jens Heinrich and Leon De Andrade
+# execute:
+#   execute_notebooks: 'off'
+
+latex:
+  latex_engine: pdflatex
+  latex_documents:
+    targetname: studienarbeit.tex
+
+bibtex_bibfiles:
+  - references.bib
+
+sphinx:
+  config:
+    latex_logo: dhbw.png
+    latex_theme: 'howto'
+  extra_extensions:
+    - sphinxcontrib.inkscapeconverter

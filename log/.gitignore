@@ -1,0 +1,4 @@
+# do not save log files to version history
+*
+# keep this file and folder
+!.gitignore

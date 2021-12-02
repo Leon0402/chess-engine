@@ -3,3 +3,4 @@
 
 # Jupyter
 _build
+.ipynb_checkpoints

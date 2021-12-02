@@ -15,5 +15,14 @@ sphinx:
   config:
     latex_logo: dhbw.png
     latex_theme: 'howto'
+    nb_render_priority:
+      latex:
+        - "application/pdf"
+        - "image/svg+xml"
+        - "image/png"
+        - "image/jpeg"
+        - "text/latex"
+        - "text/markdown"
+        - "text/plain"
   extra_extensions:
     - sphinxcontrib.inkscapeconverter

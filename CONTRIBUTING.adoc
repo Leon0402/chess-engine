@@ -67,18 +67,3 @@ poetry run jupyter-book build src/kasparow.ipynb --builder pdflatex
 ----
 poetry run jupyter-book build src --builder pdflatex
 ----
-
-To support inline svg in the LaTeX document the following line needs to be added to the priority["latex"] set
-
-----
-[source, python]
-        "image/svg+xml",
-----
-
-as line 59 of .venv/lib/pythonX/site-packages/myst_nb/render_outputs.py.
-For ease of use the change is also supplied as a patch file render_outputs.py.patch, which can be applied as follows
-
-----
-[source, shell]
-patch .venv/lib/python3.9/site-packages/myst_nb/render_outputs.py < render_outputs.py.patch 
-----

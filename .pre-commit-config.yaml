@@ -2,16 +2,32 @@
 repos:
   - repo: https://github.com/kynan/nbstripout
     rev: 0.5.0
-    stages:
-      - manual  # only run manually
     hooks:
       - id: nbstripout
         args:
           - --extra-keys "kernelspec metadata.kernelspec metadata.interpreter"
+        stages:
+          - manual  # only run manually
   - repo: https://github.com/nbQA-dev/nbQA
     rev: 1.1.1
     hooks:
       - id: nbqa-yapf
-        additional_dependencies: 
+        additional_dependencies:
           - toml
           - yapf
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: check-merge-conflict
+      - id: check-yaml
+        exclude: "((listings|split_test)/.*|user_stories.yaml)"
+      - id: trailing-whitespace
+        files: ".*\\.(?:tex|py)$"
+  - repo: https://github.com/nschloe/betterbib/
+    rev: 8bf1988
+    hooks:
+      - id: betterbib-format
+        args:
+          - --sort-by-bibkey
+          - --tab-indent
+          - --in-place

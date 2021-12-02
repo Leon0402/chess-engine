@@ -1,10 +1,10 @@
-= Contributing 
+= Contributing
 
-== Dependencies 
+== Dependencies
 
 .Devlopment
 * Poetry
-* Python 3.9 
+* Python 3.9
 * Precommit
 
 .Exporting to PDF
@@ -49,16 +49,16 @@ git config --global filter.nbstripout.extrakeys '
   '
 ----
 
-== Export to PDF 
+== Export to PDF
 
-Directly from jupyter notebook: 
+Directly from jupyter notebook:
 
 [source, shell]
 ----
 $ poetry run python3 -m nbconvert --to pdf src/kasparow.ipynb
 ----
 
-Using jupyter book 
+Using jupyter book
 
 [source, shell]
 ----

@@ -17,8 +17,10 @@ Install dependencies and make ipykernel available:
 [source, shell]
 ----
 $ poetry install
-$ poetry run python -m ipykernel install --user --name poetryenv --display-name "Python (poetry env)"
+$ poetry run python -m ipykernel install --user --name=PoetryChessEngine
 ----
+
+The kernel can then be selected in Jupyter Notebook to use the virtual environment.
 
 Also install precommit hooks: 
 

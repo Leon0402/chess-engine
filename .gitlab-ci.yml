@@ -1,0 +1,96 @@
+---
+# based on https://hackmd.io/@mechatronics3d/S1lfojdjL
+stages:
+  - configure
+  - build
+
+# Change pip's cache directory to be inside the project directory since we can
+# only cache local items.
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  BUILD_IMAGE: $CI_REGISTRY_IMAGE:ubuntu-build-master
+  CODE_QUALITY_IMAGE: $CI_REGISTRY_IMAGE:codeclimate-structure
+  DOCKER_IMAGE: docker
+
+# Pip's cache doesn't store the python packages
+# https://pip.pypa.io/en/stable/reference/pip_install/#caching
+#
+# If you want to also cache the installed packages, you have to install
+# them in a virtualenv and cache it as well.
+cache:
+  paths:
+    - .cache/pip
+    - .venv/
+    - src/_build/
+
+include:
+  - template: Workflows/Branch-Pipelines.gitlab-ci.yml
+
+
+before_script:
+  - python3.9 -V # Print out python version for debugging
+  - pip install poetry
+
+build:
+  stage: build
+  image: $BUILD_IMAGE
+  script:
+    - pip install -U "jupyter-book>=0.7.0b"
+    - poetry install
+    - poetry run jupyter-book build src --builder pdflatex
+    - mv src/_build/latex/studienarbeit.pdf artifacts/
+    - tar czf artifacts/latex.tar.gz src/_build/latex
+  artifacts:
+    paths:
+      - artifacts/studienarbeit.pdf
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH # Run this job when commits are pushed or merged to the default branch
+    - when: manual
+      allow_failure: true
+
+build-ubuntu-docker:
+  cache: {} # Disable Cache for Docker Stage
+  image: $DOCKER_IMAGE
+  stage: configure
+  tags:
+    - linux
+  services:
+    - docker:dind
+  before_script:
+    - >
+      docker
+      login
+      $CI_REGISTRY
+      --username $CI_REGISTRY_USER
+      --password $CI_REGISTRY_PASSWORD
+  script:
+    - >
+      docker
+      pull
+      "$BUILD_IMAGE" ||
+      docker
+      pull
+      ubuntu:21.04
+
+      # Update the docker layer cache
+    - >
+      docker
+      build
+      --pull
+      --tag "$BUILD_IMAGE"
+      ci/docker/ubuntu
+      # Build and tag the image
+    - >
+      docker
+      push
+      "$BUILD_IMAGE"
+      # Push the image into the registry
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      # Run this job when commits are pushed or merged to the default branch
+      changes:
+        - ci/docker/**/*
+    - when: manual
+      changes:
+        - ci/docker/**/*
+      allow_failure: true

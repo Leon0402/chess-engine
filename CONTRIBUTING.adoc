@@ -22,7 +22,7 @@ $ poetry run python -m ipykernel install --user --name=PoetryChessEngine
 
 The kernel can then be selected in Jupyter Notebook to use the virtual environment.
 
-Also install precommit hooks: 
+Also install precommit hooks:
 
 [source, shell]
 ----
@@ -33,10 +33,11 @@ Also setup the proper filters:
 [source, shell]
 ----
 git config filter.nbstripout.clean "f() { echo >&2 \"clean: poetry run python -m nbstripout $1\"; poetry run python -m nbstripout; }; f %f"
-git config filter.nbstripout.smudge "f() { echo >&2 \"smudge: cat $1\"; cat; }; f %f"
+git config filter.nbstripout.smudge "f() { echo >&2 \"clean: poetry run python -m nbstripout $1\"; poetry run python -m nbstripout; }; f %f"
 git config --global filter.nbstripout.extrakeys '
   metadata.celltoolbar
   metadata.kernelspec
+  metadata.interpreter
   metadata.language_info.codemirror_mode.version
   metadata.language_info.pygments_lexer
   metadata.language_info.version

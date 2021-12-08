@@ -46,25 +46,10 @@ git config --global filter.nbstripout.extrakeys '
   cell.metadata.heading_collapsed
   cell.metadata.hidden
   cell.metadata.code_folding
-  cell.metadata.tags
   '
 ----
 
 == Export to PDF
-
-Directly from jupyter notebook:
-
-[source, shell]
-----
-$ poetry run python3 -m nbconvert --to pdf src/kasparow.ipynb
-----
-
-Using jupyter book
-
-[source, shell]
-----
-poetry run jupyter-book build src/kasparow.ipynb --builder pdflatex
-----
 
 [source, shell]
 ----

@@ -1,4 +1,8 @@
 format: jb-article
 root: index
 sections:
-- file: kasparow
+- file: sections/s01_introduction
+- file: sections/s02_project_setup
+- file: sections/s03_introduction_python_chess
+- file: sections/s04_engine_setup
+- file: sections/s05_ai_engine

@@ -3,6 +3,8 @@ author: Jens Heinrich and Leon De Andrade
 # execute:
 #   execute_notebooks: 'off'
 
+only_build_toc_files: true
+
 latex:
   latex_engine: pdflatex
   latex_documents:
@@ -13,6 +15,10 @@ bibtex_bibfiles:
 
 sphinx:
   config:
+    latex_elements:
+      # https://tex.stackexchange.com/questions/43024/section-results-in-0-1-not-in-1-0
+      preamble: |
+        \renewcommand\thesection{\arabic{section}}
     latex_logo: dhbw.png
     latex_theme: 'howto'
     nb_render_priority:

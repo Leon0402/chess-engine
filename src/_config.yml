@@ -17,8 +17,11 @@ sphinx:
   config:
     latex_elements:
       # https://tex.stackexchange.com/questions/43024/section-results-in-0-1-not-in-1-0
+      # https://tex.stackexchange.com/questions/9497/start-new-page-with-each-section
       preamble: |
         \renewcommand\thesection{\arabic{section}}
+        \usepackage{titlesec}
+        \newcommand{\sectionbreak}{\clearpage}
     latex_logo: dhbw.png
     latex_theme: 'howto'
     nb_render_priority:

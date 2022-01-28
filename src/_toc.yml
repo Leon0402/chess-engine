@@ -6,3 +6,4 @@ sections:
 - file: sections/s03_introduction_python_chess
 - file: sections/s04_engine_setup
 - file: sections/s05_ai_engine
+- file: sections/s06_enhanced_ai_engine

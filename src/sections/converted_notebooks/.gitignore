@@ -1,0 +1,4 @@
+# ignore the generated files
+*
+# keep this file
+!.gitignore

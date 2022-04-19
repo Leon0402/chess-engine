@@ -4,6 +4,13 @@ sections:
 - file: sections/s01_introduction
 - file: sections/s02_project_setup
 - file: sections/s03_introduction_python_chess
-- file: sections/s04_engine_setup
-- file: sections/s05_ai_engine
-- file: sections/s06_enhanced_ai_engine
+- file: sections/s04_engine_interface
+- file: sections/s05_random_engine
+- file: sections/s06_play
+- file: sections/s07_human_engine
+- file: sections/s08_evaluation
+- file: sections/s09_minimax_engine
+- file: sections/s10_alpha_beta_engine
+- file: sections/s11_iterative_deepening
+- file: sections/s12_simplified_evaluation
+- file: sections/s13_quiescence_search

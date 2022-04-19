@@ -1,6 +1,7 @@
 title: "Building an artificial intelligence for chess in python"
-author: Jens Heinrich and Leon De Andrade
-# execute:
+author: Jens Heinrich (9016280) and Leon De Andrade (1609922)
+execute:
+    timeout: 300
 #   execute_notebooks: 'off'
 
 only_build_toc_files: true
@@ -22,6 +23,7 @@ sphinx:
         \renewcommand\thesection{\arabic{section}}
         \usepackage{titlesec}
         \newcommand{\sectionbreak}{\clearpage}
+      papersize: a4paper
     latex_logo: dhbw.png
     latex_theme: 'howto'
     nb_render_priority:

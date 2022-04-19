@@ -1,4 +1,5 @@
 # Chess Engine
 
 ```{bibliography}
+:all:
 ```

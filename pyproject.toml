@@ -9,6 +9,7 @@ license = "MIT"
 python = ">=3.9,<3.11"
 chess = "^1.7.0"
 graphviz = "^0.19"
+line-profiler = "^3.4.0"
 
 [tool.poetry.dev-dependencies]
 yapf = "^0.31.0"

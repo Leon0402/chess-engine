@@ -239,12 +239,12 @@ class MinMaxGraph:
         )
 
 
-def inject_quiesce(tree: MinMaxTree, quiesce_function):
+def inject_quiescence(tree: MinMaxTree, quiesce_function):
     """TODO"""
     # Check for recursive calls and only in these cases add the move to the tree
     depth = 0
 
-    def _quiesce(board: chess.Board, alpha: int, beta: int):
+    def _quiescence(board: chess.Board, alpha: int, beta: int):
         nonlocal depth
         depth -= 1
 
@@ -261,7 +261,7 @@ def inject_quiesce(tree: MinMaxTree, quiesce_function):
 
         return score
 
-    return _quiesce
+    return _quiescence
 
 
 def inject_value(tree: MinMaxTree, value_function, relative):
@@ -304,6 +304,6 @@ def add_tree_to_engine(engine, relative: bool = False):
     tree = MinMaxTree()
     engine._evaluate_moves = inject_evaluate_moves(tree, engine._evaluate_moves)
     engine._value = inject_value(tree, engine._value, relative)
-    if hasattr(engine, "_quiesce"):
-        engine._quiesce = inject_quiesce(tree, engine._quiesce)
+    if hasattr(engine, "_quiescence"):
+        engine._quiescence = inject_quiescence(tree, engine._quiescence)
     return tree

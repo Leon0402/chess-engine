@@ -10,6 +10,7 @@ python = ">=3.9,<3.11"
 chess = "^1.7.0"
 graphviz = "^0.19"
 line-profiler = "^3.4.0"
+pandas = "^1.4.2"
 
 [tool.poetry.dev-dependencies]
 yapf = "^0.31.0"
@@ -27,7 +28,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.yapf]
-COLUMN_LIMIT = 80 
+COLUMN_LIMIT = 80
 JOIN_MULTIPLE_LINES = false
 EACH_DICT_ENTRY_ON_SEPARATE_LINE = true
 FORCE_MULTILINE_DICT = true

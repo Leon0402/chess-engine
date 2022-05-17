@@ -1,0 +1,67 @@
+{
+    "engine1": "PrototypeV1Engine",
+    "engine2": "StockfishEngine",
+    "rounds": 10,
+    "games": [
+        {
+            "color": true,
+            "number_of_moves": 25,
+            "time": 122.73299916200267,
+            "result": 1
+        },
+        {
+            "color": true,
+            "number_of_moves": 41,
+            "time": 164.74097838700254,
+            "result": 1
+        },
+        {
+            "color": true,
+            "number_of_moves": 93,
+            "time": 250.18482053099797,
+            "result": 1
+        },
+        {
+            "color": true,
+            "number_of_moves": 75,
+            "time": 294.0927194229989,
+            "result": 1
+        },
+        {
+            "color": false,
+            "number_of_moves": 104,
+            "time": 368.6989974729986,
+            "result": 1
+        },
+        {
+            "color": false,
+            "number_of_moves": 114,
+            "time": 382.2971468830001,
+            "result": 1
+        },
+        {
+            "color": false,
+            "number_of_moves": 64,
+            "time": 478.9610402489998,
+            "result": 1
+        },
+        {
+            "color": true,
+            "number_of_moves": 148,
+            "time": 557.4439935859991,
+            "result": 0
+        },
+        {
+            "color": false,
+            "number_of_moves": 92,
+            "time": 772.3480437870021,
+            "result": 1
+        },
+        {
+            "color": false,
+            "number_of_moves": 254,
+            "time": 788.8153751319987,
+            "result": 1
+        }
+    ]
+}

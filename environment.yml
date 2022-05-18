@@ -1,0 +1,9 @@
+---
+# Source https://stackoverflow.com/questions/35245401/combining-conda-environment-yml-with-pip-requirements-txt
+name: chess-engine
+dependencies:
+  - python>=3.9
+  - anaconda
+  - pip
+  - pip:
+    - -r requirements.txt

@@ -7,7 +7,7 @@ from traitlets.config import Config
 from nbconvert.exporters import PythonExporter
 
 
-class JupyerLoader():
+class JupyterLoader():
     """
     Docs
     """

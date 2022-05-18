@@ -1,5 +1,11 @@
 ---
 repos:
+  - repo: https://github.com/python-poetry/poetry
+    rev: d0aa6e8
+    hooks:
+      - id: poetry-lock
+      - id: poetry-export
+        args: ["--dev", "-f", "requirements.txt", "-o", "requirements.txt"]
   - repo: https://github.com/kynan/nbstripout
     rev: 0.5.0
     hooks:

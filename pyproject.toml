@@ -21,6 +21,7 @@ jupyter = "^1.0.0"
 jupyter-book = "^0.12.0"
 pyppeteer = "^0.2.6"
 sphinxcontrib-svg2pdfconverter = "^1.1.1"
+setuptools = "^62.3.1"
 
 
 [build-system]

@@ -1,8 +1,10 @@
 = Contributing
 
+For development we use `poetry`, which handles everything related to dependencies and virtual environments. This is the tested setup and it's recommend to use this as well. We also export a `requirements.txt` file to use with other tools like `virtualenv` or `conda` if your prefer these.
+
 == Dependencies
 
-.Devlopment
+.Development
 * Poetry
 * Python 3.9
 * Precommit
@@ -17,7 +19,7 @@ Install dependencies and make ipykernel available:
 [source, shell]
 ----
 $ poetry install
-$ poetry run python -m ipykernel install --user --name=PoetryChessEngine
+$ poetry run python -m ipykernel install --user --name=PutHereSomeNameForTheKernel
 ----
 
 The kernel can then be selected in Jupyter Notebook to use the virtual environment.

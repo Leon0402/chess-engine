@@ -4,6 +4,8 @@ import graphviz
 import chess
 import IPython
 
+from chess.engine import PovScore, Score
+
 
 class Node:
     """TODO"""
@@ -51,7 +53,7 @@ class Node:
         self.principal_variation = True
 
         for node in self.nodes.values():
-            if self.root or self.score == node.score:
+            if self.root or self.score.white() == node.score.white():
                 node.calculate_principal_variation()
 
     def calculate_pruned_nodes(self, board: chess.Board):
@@ -209,7 +211,7 @@ class MinMaxGraph:
         elif node.pruned:
             label = "?"
         else:
-            label = str(node.score)
+            label = str(node.score.white())
 
         if node.alpha is not None:
             tooltip = f"alpha = {node.alpha}, beta = {node.beta}, depth = {node.depth}"
@@ -249,13 +251,7 @@ def inject_quiescence(tree: MinMaxTree, quiesce_function):
         depth -= 1
 
         score = quiesce_function(board, alpha, beta)
-
-        if board.turn is chess.BLACK:
-            tree.add_move(
-                board, -score, depth, -1 * alpha, -1 * beta, quiesce=True
-            )
-        else:
-            tree.add_move(board, score, depth, alpha, beta, quiesce=True)
+        tree.add_move(board, score, depth, alpha, beta, quiesce=True)
 
         depth = 0
 
@@ -264,13 +260,13 @@ def inject_quiescence(tree: MinMaxTree, quiesce_function):
     return _quiescence
 
 
-def inject_value(tree: MinMaxTree, value_function, relative):
+def inject_value(tree: MinMaxTree, value_function):
     """TODO"""
     def value(
         board: chess.Board,
         depth: int,
-        alpha: int = None,
-        beta: int = None,
+        alpha: Score = None,
+        beta: Score = None,
     ):
         tree.check_reset(board, depth)
 
@@ -279,10 +275,7 @@ def inject_value(tree: MinMaxTree, value_function, relative):
         else:
             score = value_function(board, depth, alpha, beta)
 
-        if relative and board.turn is chess.BLACK:
-            tree.add_move(board, -score, depth, -1 * beta, -1 * alpha)
-        else:
-            tree.add_move(board, score, depth, alpha, beta)
+        tree.add_move(board, score, depth, alpha, beta)
         return score
 
     return value
@@ -298,12 +291,24 @@ def inject_evaluate_moves(tree: MinMaxTree, evaluate_moves_function):
 
     return _evaluate_moves
 
+def inject_find_best_move(tree: MinMaxTree, _find_best_move_function):
+    """TODO"""
+    def _find_best_move(board: chess.Board):
+        tree.init(board)
+        result = _find_best_move_function(board)
+        tree.complete()
+        return result
 
-def add_tree_to_engine(engine, relative: bool = False):
+    return _find_best_move
+
+
+def add_tree_to_engine(engine):
     """TODO"""
     tree = MinMaxTree()
     engine._evaluate_moves = inject_evaluate_moves(tree, engine._evaluate_moves)
-    engine._value = inject_value(tree, engine._value, relative)
+    engine._value = inject_value(tree, engine._value)
     if hasattr(engine, "_quiescence"):
         engine._quiescence = inject_quiescence(tree, engine._quiescence)
+    if hasattr(engine, "_find_best_move"):
+        engine._find_best_move = inject_find_best_move(tree, engine._find_best_move)
     return tree

@@ -54,6 +54,9 @@ class Node:
         self.principal_variation = True
 
         for node in self.nodes.values():
+            if node.pruned or node.score is None:
+                continue
+
             if (self.root and self.score is None) or self.score.white() == node.score.white():
                 node.calculate_principal_variation()
 

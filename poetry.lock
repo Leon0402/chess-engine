@@ -588,7 +588,7 @@ testing = ["ipykernel", "coverage", "pytest (>=3.6,<4)", "pytest-cov", "pytest-r
 
 [[package]]
 name = "jupyter-client"
-version = "7.3.1"
+version = "7.3.2"
 description = "Jupyter protocol implementation and client libraries"
 category = "dev"
 optional = false
@@ -599,12 +599,12 @@ entrypoints = "*"
 jupyter-core = ">=4.9.2"
 nest-asyncio = ">=1.5.4"
 python-dateutil = ">=2.8.2"
-pyzmq = ">=22.3"
+pyzmq = ">=23.0"
 tornado = ">=6.0"
 traitlets = "*"
 
 [package.extras]
-doc = ["ipykernel", "myst-parser", "sphinx (>=1.3.6)", "sphinx-rtd-theme", "sphinxcontrib-github-alt"]
+doc = ["ipykernel", "myst-parser", "sphinx-rtd-theme", "sphinx (>=1.3.6)", "sphinxcontrib-github-alt"]
 test = ["codecov", "coverage", "ipykernel (>=6.5)", "ipython", "mypy", "pre-commit", "pytest", "pytest-asyncio (>=0.18)", "pytest-cov", "pytest-timeout"]
 
 [[package]]
@@ -2335,8 +2335,8 @@ jupyter-cache = [
     {file = "jupyter_cache-0.4.3-py3-none-any.whl", hash = "sha256:6d5d662d81f565d18009e8dcfd3a56fb876af47eafead2a19ef0045aba8ffe3b"},
 ]
 jupyter-client = [
-    {file = "jupyter_client-7.3.1-py3-none-any.whl", hash = "sha256:404abe552540aff3527e66e16beb114b6b4ff58479d51a301f4eb9701e4f52ef"},
-    {file = "jupyter_client-7.3.1.tar.gz", hash = "sha256:05d4ff6a0ade25138c6bb0fbeac7ddc26b5fe835e7dd816b64b4a45b931bdc0b"},
+    {file = "jupyter_client-7.3.2-py3-none-any.whl", hash = "sha256:be7dff1c6792a951169b514b9b66e9d7ffaba811575cf49d24b73a1ca28f014a"},
+    {file = "jupyter_client-7.3.2.tar.gz", hash = "sha256:8f92691bf2d8c670e108813a0290d93a3dc84f74fb844e915b7e587ef2fcbf44"},
 ]
 jupyter-console = [
     {file = "jupyter_console-6.4.3-py3-none-any.whl", hash = "sha256:e630bcb682c0088dda45688ad7c2424d4a825c8acf494cb036ced03ed0424841"},

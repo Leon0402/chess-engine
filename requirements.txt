@@ -746,9 +746,9 @@ pyzmq==23.1.0 ; python_version >= "3.9" and python_version < "3.11" \
     --hash=sha256:f6c9d30888503f2f5f87d6d41f016301352dd98da4a861bd10663c3a2d99d3b5 \
     --hash=sha256:fab8a7877275060f7b303e1f91c218069a2814a616b6a5ee2d8a3737deb15915 \
     --hash=sha256:fc32e7d7f98cac3d8d5153ed2cb583158ae3d446a6efb8e28ccb1c54a09f4169
-qtconsole==5.3.0 ; python_version >= "3.9" and python_version < "3.11" \
-    --hash=sha256:75f2ded876444454edcb5a53262149e33b53db3a4a53116b7c3df52830905b0f \
-    --hash=sha256:8e3520fdc75e46abc4cc6cffeca16fa2652754109b8ae839fa28e27d1eba5625
+qtconsole==5.3.1 ; python_version >= "3.9" and python_version < "3.11" \
+    --hash=sha256:b73723fac43938b684dcb237a88510dc7721c43a726cea8ade179a2927c0a2f3 \
+    --hash=sha256:d364592d7ede3257f1e17fcdbfd339c26e2cc638ca4fa4ee56a724e26ea13c81
 qtpy==2.1.0 ; python_version >= "3.9" and python_version < "3.11" \
     --hash=sha256:aee0586081f943029312becece9f63977b0a9e3788f77a6ac8cc74802bb173d6 \
     --hash=sha256:ca8cd4217175186344299ee4c0f7e7adcf362c70852ba35b255a534077025c06

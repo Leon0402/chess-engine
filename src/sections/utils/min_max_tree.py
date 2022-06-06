@@ -3,8 +3,9 @@ from collections import defaultdict
 import graphviz
 import chess
 import IPython
+import collections
 
-from chess.engine import PovScore, Score
+from chess.engine import PovScore, Score, Mate, Cp
 
 
 class Node:
@@ -20,14 +21,14 @@ class Node:
 
         self.quiesce = False
         self.white_turn = True
-        self.principal_variation = False
+        self.principal_variation = self.root
         self.pruned = False
 
     def add_move(
         self,
         moves: list,
         white_turn: bool,
-        score: int,
+        score: PovScore,
         depth: int,
         alpha: int,
         beta: int,
@@ -53,7 +54,7 @@ class Node:
         self.principal_variation = True
 
         for node in self.nodes.values():
-            if self.root or self.score.white() == node.score.white():
+            if (self.root and self.score is None) or self.score.white() == node.score.white():
                 node.calculate_principal_variation()
 
     def calculate_pruned_nodes(self, board: chess.Board):
@@ -207,7 +208,7 @@ class MinMaxGraph:
             shape = "doubleoctagon" if node.principal_variation else "octagon"
 
         if node.root:
-            label = "root"
+            label = str(node.score.white()) if node.score is not None else "root"
         elif node.pruned:
             label = "?"
         else:

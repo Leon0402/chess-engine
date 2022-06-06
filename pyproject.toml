@@ -11,6 +11,8 @@ chess = "^1.9.0"
 graphviz = "^0.19"
 line-profiler = "^3.4.0"
 pandas = "^1.4.2"
+requests = "^2.27.1"
+beautifulsoup4 = "^4.11.1"
 
 [tool.poetry.dev-dependencies]
 yapf = "^0.31.0"

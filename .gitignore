@@ -8,3 +8,6 @@ __pycache__
 _build
 .ipynb_checkpoints
 *.pdf
+
+converted_markdown
+converted_notebooks
